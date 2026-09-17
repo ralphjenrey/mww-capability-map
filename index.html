@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MWW Capability Map</title>
+    <script type="module">
+      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: "default",
+        flowchart: {
+          useMaxWidth: true,
+          curve: "basis",
+          htmlLabels: true
+        }
+      });
+    </script>
+    <style>
+      :root {
+        --bg: #f8fafc;
+        --card: #ffffff;
+        --text: #111827;
+        --muted: #475569;
+        --shadow: rgba(15, 23, 42, 0.08);
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
+
+      .wrap {
+        max-width: 1500px;
+        margin: 40px auto;
+        padding: 20px;
+      }
+
+      .card {
+        background: var(--card);
+        border-radius: 18px;
+        box-shadow: 0 10px 30px var(--shadow);
+        padding: 28px;
+      }
+
+      h1 {
+        margin: 0 0 20px;
+        text-align: center;
+        font-size: clamp(1.8rem, 3vw, 2.6rem);
+      }
+
+      .mermaid {
+        overflow-x: auto;
+        text-align: center;
+      }
+      .mermaid svg {
+        max-width: 100%;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="card">
+        <h1>MWW: Capabilities found in the project</h1>
+        <div class="mermaid">
+flowchart TB
+    SYSTEM["MWW: Capabilities found in the project"]
+
+    SYSTEM --> OFFICE["Office staff"]
+    SYSTEM --> OPS["Moving and warehouse operations"]
+    SYSTEM --> CUSTOMER["Customer self-service"]
+    SYSTEM --> ADMIN["Administration"]
+
+    OFFICE --> CRM["Contacts and relationships<br/>Customers, companies and agents<br/>Address book and billing addresses"]
+    OFFICE --> SALES["Sales and job management<br/>Email inquiries and job creation<br/>Job groups, quotations and calculations"]
+    OFFICE --> PLANNING["Planning<br/>Dashboard and calendars<br/>Tasks, assigned jobs, trips and trucks"]
+    OFFICE --> COMMUNICATION["Communication<br/>Email, SMS and WhatsApp<br/>Templates, attachments and Google Meet"]
+    OFFICE --> FINANCE["Finance<br/>Invoices and payment links<br/>Billing items, notes and storage charges"]
+    OFFICE --> REPORTING["Reporting<br/>Lead-source analytics<br/>Dashboard summaries and audit trails"]
+
+    OPS --> WAYBILL["Waybills and assignments<br/>Drivers, trucks and job instructions<br/>Status updates and submission to office"]
+    OPS --> PROOF["Work documentation<br/>Waybill photos<br/>Driver acknowledgements and signatures"]
+    OPS --> FORMS["Moving documents<br/>Packing lists and damage reports<br/>Quality checks, walkthroughs and risk assessments<br/>Customs and transport documents"]
+    OPS --> STOCK["Materials and equipment<br/>Materials issued and returned<br/>Tools and stock records"]
+    OPS --> WAREHOUSE["Warehouse and shipping<br/>Receiving conditions, items and photos<br/>Packing instructions and volume measurements<br/>Storage and shipping status"]
+    OPS --> TIME["Work time<br/>Timelogs and time tracking"]
+
+    CUSTOMER --> SURVEY["Surveys<br/>Rooms, items, photos and video<br/>Customer survey access"]
+    CUSTOMER --> PAYMENT["Online invoice payments"]
+
+    ADMIN --> ACCESS["Users, roles and permissions<br/>Company and system configuration"]
+    ADMIN --> SETUP["Business setup<br/>Document and message templates<br/>Shipping suppliers, rates and reference data"]
+
+    classDef system fill:#f5f3ff,stroke:#a78bfa,stroke-width:3px,color:#1f2937;
+    classDef office fill:#eef2ff,stroke:#818cf8,stroke-width:2px,color:#1f2937;
+    classDef operations fill:#f0fdfa,stroke:#2dd4bf,stroke-width:2px,color:#1f2937;
+    classDef customer fill:#ecfeff,stroke:#22d3ee,stroke-width:2px,color:#1f2937;
+    classDef admin fill:#fff7ed,stroke:#fb923c,stroke-width:2px,color:#1f2937;
+
+    class SYSTEM system;
+    class OFFICE,CRM,SALES,PLANNING,COMMUNICATION,FINANCE,REPORTING office;
+    class OPS,WAYBILL,PROOF,FORMS,STOCK,WAREHOUSE,TIME operations;
+    class CUSTOMER,SURVEY,PAYMENT customer;
+    class ADMIN,ACCESS,SETUP admin;
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
